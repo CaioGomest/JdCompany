@@ -6,12 +6,24 @@ body {
     font-family:'Lato',Helvetica,Arial;
     font-size:15px;
     display:flex;
+    flex-direction: column;
     margin:0;
     min-height:100vh;
 }
 .models {
     display:none;
 }
+.header{
+    height: 20vh;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+height: 20vh;
+}
+
 
 header {
     position: fixed;
@@ -19,17 +31,20 @@ header {
     top:0;
     right:0;
     height:60px;
-    background-color:#399ade;
+    background-color:#000;
     display:none;
     justify-content: flex-end;
     align-items: center;
 }
 .menu-openner {
-    margin-right: 15px;
+    display: none;
+    height: 50px;
+    margin-left: 100px;
     font-size: 26px;
-    background-color: #a9dcff;
+    background-color: rgb(246, 204, 32);
     padding: 5px 20px;
     border-radius: 5px;
+    margin: 15px 50px;
 }
 .menu-openner span {
     margin-right:10px;
@@ -42,7 +57,7 @@ header {
 }
 
 aside {
-    background-color:#9ccbe6;
+    background-color:rgb(246, 204, 32);
     width:0vw;
     font-family:'Hepta Slab', Helvetica, Arial;
     transition:all ease .2s;
@@ -61,34 +76,35 @@ main {
 h1 {
     font-family:'Hepta Slab', Helvetica, Arial;
 }
-.pizza-area {
+.produto-area {
+    margin-top: 50px;
     display:grid;
     grid-template-columns: repeat(3, 1fr);
 }
-.pizza-item {
+.produto-item {
     text-align: center;
     max-width:250px;
     font-family:'Hepta Slab', Helvetica, Arial;
     margin:0 auto 50px auto;
 }
-.pizza-item a {
+.produto-item a {
     display:flex;
     flex-direction: column;
     align-items:center;
     text-decoration: none;
 }
-.pizza-item--img {
+.produto-item--img {
     width:200px;
     height:200px;
     background-color:#EEE;
     border-radius:100px;
     box-shadow:0px 10px 50px rgba(0, 0, 0, 0.2);
 }
-.pizza-item--img img {
+.produto-item--img img {
     width:100%;
     height:auto;
 }
-.pizza-item--add {
+.produto-item--add {
     width:50px;
     height:50px;
     line-height:50px;
@@ -101,27 +117,27 @@ h1 {
     margin-top:-25px;
     transition:all ease .2s;
 }
-.pizza-item a:hover .pizza-item--add {
+.produto-item a:hover .produto-item--add {
     background-color:#244c88;
 }
-.pizza-item--price {
+.produto-item--price {
     font-size:15px;
     color:#333;
     margin-top:5px;
 }
-.pizza-item--name {
+.produto-item--name {
     font-size:20px;
     font-weight: bold;
     color:#000;
     margin-top:5px;
 }
-.pizza-item--desc {
+.produto-item--desc {
     font-size:13px;
     color:#555;
     margin-top:10px;
 }
 
-.pizzaWindowArea {
+.produtoWindowArea {
     position:fixed;
     left:0;
     top:0;
@@ -136,7 +152,7 @@ h1 {
     opacity: 0;
     
 }
-.pizzaWindowBody {
+.produtoWindowBody {
     width:900px;
     background-color:#FFF;
     border-radius:10px;
@@ -144,49 +160,49 @@ h1 {
     display:flex;
     margin:20px 0px;
 }
-.pizzaBig {
+.produtoBig {
     flex:1;
     display:flex;
     justify-content: center;
     align-items: center;
 }
-.pizzaBig--back {
+.produtoBig--back {
     position:absolute;
     width:30px;
     height:30px;
     background-color:#000;
 }
-.pizzaBig img {
+.produtoBig img {
     height:400px;
     width:auto;
 }
-.pizzaInfo {
+.produtoInfo {
     flex:1;
     font-family:'Hepta Slab', Helvetica, Arial;
     padding-bottom:50px;
 }
-.pizzaInfo h1 {
+.produtoInfo h1 {
     margin-top:50px;
 }
-.pizzaInfo .pizzaInfo--desc {
+.produtoInfo .produtoInfo--desc {
     font-size:15px;
     color:#999;
     margin-top:10px;
     font-family:'Lato',Helvetica,Arial;
 }
-.pizzaInfo--sector {
+.produtoInfo--sector {
     color:#CCC;
     text-transform: uppercase;
     font-size:14px;
     margin-top:30px;
     margin-bottom:10px;
 }
-.pizzaInfo--sizes {
+.produtoInfo--sizes {
     display:inline-flex;
     border-radius:10px;
     overflow:hidden;
 }
-.pizzaInfo--size {
+.produtoInfo--size {
     padding:10px 15px;
     color:#000;
     background-color:#EEE;
@@ -194,36 +210,36 @@ h1 {
     font-weight: bold;
     cursor:pointer;
 }
-.pizzaInfo--size:hover {
+.produtoInfo--size:hover {
     background-color:#CCC;
 }
-.pizzaInfo--size.selected {
+.produtoInfo--size.selected {
     background-color:#399ade;
     color:#FFF;
 }
-.pizzaInfo--size.selected span {
+.produtoInfo--size.selected span {
     color:#D6D6D6;
 }
-.pizzaInfo--size span {
+.produtoInfo--size span {
     font-size:12px;
     color:#999;
     font-weight: normal;
 }
-.pizzaInfo--price {
+.produtoInfo--price {
     display:flex;
     align-items:center;
 }
-.pizzaInfo--actualPrice {
+.produtoInfo--actualPrice {
     font-size:28px;
     margin-right:30px;
 }
-.pizzaInfo--qtarea {
+.produtoInfo--qtarea {
     display:inline-flex;
     background-color:#EEE;
     border-radius:10px;
     height:30px;
 }
-.pizzaInfo--qtarea button {
+.produtoInfo--qtarea button {
     border:0;
     background-color:transparent;
     font-size:17px;
@@ -232,14 +248,14 @@ h1 {
     padding:0px 10px;
     color:#333;
 }
-.pizzaInfo--qt {
+.produtoInfo--qt {
     line-height: 30px;
     font-size: 12px;
     font-weight: bold;
     padding: 0px 5px;
     color:#000;
 }
-.pizzaInfo--addButton {
+.produtoInfo--addButton {
     margin-top:30px;
     padding:20px 30px;
     border-radius:20px;
@@ -249,14 +265,14 @@ h1 {
     cursor:pointer;
     margin-right:30px;
 }
-.pizzaInfo--addButton:hover {
+.produtoInfo--addButton:hover {
     background-color:#32a345;
 }
-.pizzaInfo--cancelButton {
+.produtoInfo--cancelButton {
     display:inline-block;
     cursor:pointer;
 }
-.pizzaInfo--cancelMobileButton {
+.produtoInfo--cancelMobileButton {
     display:none;
     height:40px;
     text-align:center;
@@ -304,7 +320,7 @@ h1 {
 }
 .cart--totalitem {
     padding:15px 0;
-    border-top:1px solid #79b9dd;
+    border-top:1px solid #000000;
     color:#315970;
     display:flex;
     justify-content: space-between;
@@ -326,7 +342,7 @@ h1 {
     cursor:pointer;
     text-align:center;
     margin-top:20px;
-    border:2px solid #63f77c;
+    border:2px solid #000;
     transition: all ease .2s;
 }
 .cart--finalizar:hover {
@@ -334,23 +350,31 @@ h1 {
 }
 
 @media (max-width:1000px) {
-    .pizza-area {
+    .produto-area {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width:840px) {
+   
+    .menu-openner{
+        display: flex;
+    }
+    header{
+        display: none;
+        justify-content: space-around;
+    }
+    header a .logo {
+        height: 60px;
+    }
     body {
         flex-direction: column;
     }
-    .pizza-area {
+    .produto-area {
         display:block;
     }
-    .pizza-item {
+    .produto-item {
         max-width:100%;
-    }
-    header {
-        display:flex;
     }
     main {
         padding-top:60px;
@@ -376,12 +400,12 @@ h1 {
         display:block;
     }
 
-    .pizzaWindowArea {
+    .produtoWindowArea {
         justify-content:flex-start;
         align-items: flex-start;
     }
 
-    .pizzaWindowBody {
+    .produtoWindowBody {
         width:100vw;
         display:block;
         padding:20px;
@@ -390,37 +414,37 @@ h1 {
         margin:0;
     }
 
-    .pizzaBig img {
+    .produtoBig img {
         width: 75%;
         height: auto;
     }
 
-    .pizzaInfo h1 {
+    .produtoInfo h1 {
         margin-top:20px;
     }
 
-    .pizzaInfo--qtarea {
+    .produtoInfo--qtarea {
         height:60px;
     }
-    .pizzaInfo--qtarea button {
+    .produtoInfo--qtarea button {
         font-size:25px;
         padding:0px 25px;
     }
-    .pizzaInfo--qt {
+    .produtoInfo--qt {
         line-height: 60px;
         font-size:20px;
     }
-    .pizzaInfo--addButton {
+    .produtoInfo--addButton {
         font-size:20px;
         display:block;
         text-align:center;
         margin:30px auto;
     }
 
-    .pizzaInfo--cancelButton {
+    .produtoInfo--cancelButton {
         display:none;
     }
-    .pizzaInfo--cancelMobileButton {
+    .produtoInfo--cancelMobileButton {
         display:block;
     }
 }
