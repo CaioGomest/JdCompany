@@ -72,12 +72,9 @@ function removeproduto() {
 }
 //carrinho
 function addCarrinho() {
-  let size = q(".produtoInfo--size.selected").getAttribute("data-key");
   let keyQt = areaprodutoQt;
-  produtoJson[keyproduto].sizes[size];
 
-  let identifier =
-    produtoJson[keyproduto].id + "@" + produtoJson[keyproduto].sizes[size];
+  let identifier = produtoJson[keyproduto].id;
 
   areaprodutoQt = 1;
   let key = cart.findIndex((item) => item.identifier == identifier);
@@ -88,14 +85,13 @@ function addCarrinho() {
     cart.push({
       identifier,
       id: produtoJson[keyproduto].name,
-      size: produtoJson[keyproduto].sizes[size],
       qt: keyQt,
     });
   }
   upadetCart();
   closeAreaproduto();
-  //console.log(`${keyQt} produtos do Sabor de ${produtoJson[keyproduto].name} e o tamanho é ${produtoJson[keyproduto].sizes[size]} `)
 }
+//console.log(`${keyQt} produtos do Sabor de ${produtoJson[keyproduto].name} e o tamanho é ${produtoJson[keyproduto].sizes[size]} `)
 
 q(".menu-openner").addEventListener("click", () => {
   if (parseInt(aside.style.left) == 0) {
@@ -127,25 +123,10 @@ function upadetCart() {
       let produtoItem = produtoJson.find((item) => item.name == cart[i].id);
       let cartItem = q(".models .cart--item").cloneNode(true);
       let qt = cart.qt;
-      let nomeSize;
+
       subtotal += produtoItem.price * cart[i].qt;
 
-      switch (cart[i].size) {
-        case "100g":
-        case "320g":
-          nomeSize = "P";
-          break;
-
-        case "530g":
-          nomeSize = "M";
-          break;
-
-        case "860g":
-          nomeSize = "G";
-          break;
-      }
-
-      let produtoName = `${produtoItem.name} (${nomeSize})`;
+      let produtoName = `${produtoItem.name}`;
       cartItem.querySelector("img").src = produtoItem.img;
       cartItem.querySelector(".cart--item-nome").innerHTML = produtoName;
       cartItem.querySelector(".cart--item--qt").innerHTML = cart[i].qt;
