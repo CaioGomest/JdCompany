@@ -5,8 +5,7 @@ let produtoJson = [
     img: "/img/p001.png",
     price: 18.9,
     sizes: ["100g", "530g", "860g"],
-    description:
-      "Descrição da pizza em mais de uma linha muito legal bem interessante",
+    description: "Descrição opcional",
   },
   {
     id: 2,
