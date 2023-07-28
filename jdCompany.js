@@ -168,7 +168,7 @@ function upadetCart() {
   q(".cart--finalizar").addEventListener("click", () => {
     let pedido = "";
     for (let t in cart) {
-      pedido += ` ${cart[t].qt} produto de ${cart[t].id} de ${cart[t].size} \n`;
+      pedido += ` ${cart[t].qt} ${cart[t].id} \n`;
     }
 
     var subpedido = "Boa Noite! Gostaria de:\n" + pedido;
