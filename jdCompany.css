@@ -184,6 +184,7 @@ aside {
     font-family:'Hepta Slab', Helvetica, Arial;
     transition:all ease .2s;
     overflow-x:hidden;
+    right: 100%;
 }
 aside.show {
     position: absolute;
