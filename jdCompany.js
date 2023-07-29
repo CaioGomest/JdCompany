@@ -94,8 +94,8 @@ function addCarrinho() {
 //console.log(`${keyQt} produtos do Sabor de ${produtoJson[keyproduto].name} e o tamanho é ${produtoJson[keyproduto].sizes[size]} `)
 
 q(".menu-openner").addEventListener("click", () => {
-  if (parseInt(aside.style.left) == 0) {
-    aside.style.right = "100vw";
+  if (parseInt(aside.style.right) == 0) {
+    aside.style.right = "100%";
   } else {
     aside.style.right = "0";
   }
@@ -104,7 +104,7 @@ q(".menu-closer").addEventListener("click", () => {
   if (parseInt(aside.style.right) == 100) {
     aside.style.right = "0vw";
   } else {
-    aside.style.right = "100vw";
+    aside.style.right = "100%";
   }
 });
 

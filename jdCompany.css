@@ -176,8 +176,11 @@ header {
 }
 /*Sidebar ---------------*/
 aside {
+    
+    position: fixed;
     background-color:rgb(246, 204, 32);
-    width:0vw;
+    width:100vw;
+    height: 100vh;
     font-family:'Hepta Slab', Helvetica, Arial;
     transition:all ease .2s;
     overflow-x:hidden;
@@ -514,6 +517,7 @@ h1 {
     aside.show {
         width:auto;
     }
+
     .cart--area {
         width:100vw;
     }
@@ -569,4 +573,82 @@ h1 {
     .produtoInfo--cancelMobileButton {
         display:block;
     }
+}
+@media (max-width:500px) {
+
+    .menu-openner {
+        margin-right: 5px;
+        width: 90px;
+        height: auto;
+    }
+
+    aside {
+        right: 100%;
+        left: 0;
+    }
+   .lineBurger {
+    margin: 0px;
+
+   }
+
+
+}
+/*rodape ---*/
+.rodape {
+
+    color: white;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0px;
+}
+
+.contatosContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.contatosContainer a {
+    color: white;
+    text-decoration: none;
+    margin: 5px;
+    font-weight: bold;
+    font-size: 1em;
+
+}
+
+.rodape-contatos img {
+    width: 15px;
+
+}
+
+.rodape-endereço,
+.rodape-horario {
+
+    text-align: center;
+
+}
+
+.rodape h5 {
+    font-size: 1em;
+}
+
+@media only screen and (max-width: 640px) {
+
+    .rodape {
+        color: white;
+        width: 99vw;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .contatosContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 }
