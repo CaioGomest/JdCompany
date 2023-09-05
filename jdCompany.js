@@ -32,6 +32,9 @@ produtoJson.map((item, index) => {
     q(".produtoInfo--desc").innerHTML = item.description;
     q(".produtoInfo--actualPrice").innerHTML = `R$ ${item.price}`;
     q(".produtoInfo--qt").innerHTML = areaprodutoQt;
+    q("#imgSelect1").src = item.img;
+    q("#imgSelect2").src = item.img;
+    q("#imgSelect3").src = item.img;
 
     //selecionando tamanho
     q(".produtoInfo--size.selected").classList.remove("selected");
@@ -209,4 +212,50 @@ btnClose.addEventListener("click", () => {
   sideBar.style.width = "0vw";
   body.style.overflow = "visible";
   animaContato.style.height = "0px";
+});
+// carrosel ----------------
+
+//               carrosel
+const carousel = document.querySelector(".carousel");
+const slides = document.querySelectorAll(".slide");
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
+
+let currentIndex = 0;
+
+prevBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateCarousel();
+});
+
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+});
+
+function updateCarousel() {
+  carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+  slides.forEach((slide, index) => {
+    slide.classList.toggle("active", index === currentIndex);
+  });
+}
+
+updateCarousel();
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+}
+
+// Definir intervalo para trocar os slides automaticamente
+let interval = setInterval(nextSlide, 3000);
+
+// Pausar o intervalo ao passar o mouse sobre o carrossel
+carousel.addEventListener("mouseenter", () => {
+  clearInterval(interval);
+});
+
+// Continuar o intervalo quando o mouse sai do carrossel
+carousel.addEventListener("mouseleave", () => {
+  interval = setInterval(nextSlide, 3000);
 });

@@ -22,6 +22,7 @@ body {
     align-items: center;
 }
 .logo{
+    margin: 25px;
 height: 20vh;
 }
 
@@ -178,7 +179,7 @@ header {
 aside {
     
     position: fixed;
-    background-color:rgb(246, 204, 32);
+    background-color:rgb(255, 255, 255);
     width:100vw;
     height: 100vh;
     font-family:'Hepta Slab', Helvetica, Arial;
@@ -211,6 +212,7 @@ h1 {
     max-width:250px;
     font-family:'Hepta Slab', Helvetica, Arial;
     margin:0 auto 50px auto;
+    border-radius: 10px;
 }
 .produto-item a {
     display:flex;
@@ -222,7 +224,7 @@ h1 {
     width:200px;
     height:200px;
     background-color:#EEE;
-    border-radius:100px;
+    border-radius:15px;
     box-shadow:0px 10px 50px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
@@ -302,6 +304,76 @@ h1 {
     height:400px;
     width:auto;
 }
+
+.imgProdutos {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+}
+
+.produtoBigSelect {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.produtoBigSelect img {
+    box-shadow: #000 1px 1px 10px;
+    cursor: pointer;
+    width: 100%;
+    margin: 15px;
+    
+}
+
+
+@media(max-width:1000px){
+    
+    .produtoBigSelect{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+
+    }
+    .produtoBigSelect img{
+        cursor: pointer;
+        width: 50px;
+    }
+}
+
+
+@media (max-width:840px) {
+
+    .imgProdutos {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .produtoBigSelect {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .produtoBigSelect img {
+        margin: 10px;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
 .produtoInfo {
     flex:1;
     font-family:'Hepta Slab', Helvetica, Arial;
@@ -397,6 +469,9 @@ h1 {
 .produtoInfo--cancelButton {
     display:inline-block;
     cursor:pointer;
+    width: 218px;
+    margin: 10px;
+    text-align: center;
 }
 .produtoInfo--cancelMobileButton {
     display:none;
@@ -478,6 +553,7 @@ h1 {
 @media (max-width:1000px) {
     .produto-area {
         grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
     }
 }
 
@@ -497,7 +573,7 @@ h1 {
         flex-direction: column;
     }
     .produto-area {
-        display:block;
+        display:grid/*antes era block*/;
     }
     .produto-item {
         max-width:100%;
@@ -653,3 +729,64 @@ h1 {
     }
 
 }
+@media only screen and (max-width: 380px) {
+
+.logo{
+height: 15vh;
+}
+.lineBurger {
+width: 40px;
+}
+}
+.banner{
+
+            width: 100%;
+    
+        }
+/*-----------carrosel---------------------*/
+.carousel-container {
+    position: relative;
+    width: 98%;
+    overflow: hidden;
+    border-radius: 25px;
+    margin: auto;
+    margin-top: 10px;
+    height: 200px;
+  
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;
+}
+
+.slide img {
+
+    width: 100%;
+
+
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
