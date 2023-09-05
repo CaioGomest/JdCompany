@@ -665,9 +665,10 @@ h1 {
             max-width: 100%;
         }
     .menu-openner {
-        margin-right: 5px;
+        
         width: 90px;
         height: auto;
+        margin: 15px 20px;
     }
 
     aside {
