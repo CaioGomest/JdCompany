@@ -13,9 +13,7 @@ produtoJson.map((item, index) => {
   produtoItem.querySelector(".produto-item--img img").src = item.img; //pega a class da produtoItem (.produto-item--img) e seleciona o elemento IMG e depois muda o src
   produtoItem.querySelector(".produto-item--desc").innerHTML = item.description;
   produtoItem.querySelector(".produto-item--name").innerHTML = item.name;
-  produtoItem.querySelector(
-    ".produto-item--price"
-  ).innerHTML = `R$ ${item.price.toFixed(2)}`; //toFixed(2) = todos os elementos ficam com 2 algarismos deposi da virgula
+  produtoItem.querySelector(".produto-item--price").innerHTML = `R$ ${item.price.toFixed(2)}`; //toFixed(2) = todos os elementos ficam com 2 algarismos deposi da virgula
 
   //Janela Area Da produto Selecionada
   produtoItem.querySelector("a").addEventListener("click", (e) => {
@@ -33,27 +31,40 @@ produtoJson.map((item, index) => {
     q(".produtoInfo--actualPrice").innerHTML = `R$ ${item.price}`;
     q(".produtoInfo--qt").innerHTML = areaprodutoQt;
     q("#imgSelect1").src = item.img;
-    q("#imgSelect2").src = item.img;
-    q("#imgSelect3").src = item.img;
+    q("#imgSelect2").src = item.imgs1;
+    q("#imgSelect3").src = item.imgs2;
 
-    //selecionando tamanho
-    q(".produtoInfo--size.selected").classList.remove("selected");
-    qa(".produtoInfo--size").forEach((size, sizeIndex) => {
-      //seleciona o grande sempre que abrir a area da produto
-      if (sizeIndex == 2) {
-        size.classList.add("selected");
-      }
-      size.querySelector("span").innerHTML = item.sizes[sizeIndex];
+    function verificaImgsModal(){
+      qa(".imgSelect").forEach(element => {
+        if (element.src === "undefined" || element.src === "") {
+          console.log("Imagem indefinida ou sem src.");
+        } else {
+          console.log("Imagem definida.");
+        }
+  
+});
 
-      size.addEventListener("click", () => {
-        q(".produtoInfo--size.selected").classList.remove("selected");
-        size.classList.add("selected");
+
+    }
+    function verificaImgsModal() {
+      qa(".imgSelect").forEach(element => {
+        if (element.src === "" || element.src.toLowerCase().includes("undefined")) {
+          element.style.display = "none";
+          // console.log("Imagem indefinida ou sem src.");
+        }
       });
-    });
+    }
+    verificaImgsModal(); // 
   });
 
   q(".produto-area").append(produtoItem);
 });
+
+function trocarImgModalO(){
+  var elementoClicado = event.target;
+  q(".produtoBig img").src = elementoClicado.src;
+
+}
 function closeAreaproduto() {
   q(".produtoWindowArea").style.opacity = 0;
   setTimeout(() => (q(".produtoWindowArea").style.display = "none"), 500); //como o js é rapido, não da tempo de aparecer a transiçao da opacidade do 0 para o 1, o js pula direto para o 1, entao deve ter um tempo até a opacidade ir para 1, ai entra o setTimeOut
@@ -215,7 +226,7 @@ btnClose.addEventListener("click", () => {
 });
 // carrosel ----------------
 
-//               carrosel
+//     
 const carousel = document.querySelector(".carousel");
 const slides = document.querySelectorAll(".slide");
 const prevBtn = document.querySelector(".prev-btn");
